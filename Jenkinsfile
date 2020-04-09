@@ -6,8 +6,8 @@ pipeline {
         stage("setup script") {
             steps {
                 sh """ 
-                     pip3 install --upgrade pytest --jenkins
-                     pip3 install pytest --jenkins
+                     pip3 install --upgrade pytest --user jenkins
+                     pip3 install pytest --user jenkins
                 """
         
             } // steps
