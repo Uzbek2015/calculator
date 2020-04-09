@@ -6,7 +6,8 @@ pipeline {
         stage("setup script") {
             steps {
                 sh """ 
-                    pip install pytest
+                     sudo pip3 install --upgrade pytest
+                     sudo pip3 install pytest
                 """
         
             } // steps
@@ -14,15 +15,22 @@ pipeline {
         stage(" Run unit tests") {
             steps {
                 sh """ 
-                    python -m pytest
+                    sudo python3 -m pytest
                 """
             } //steps
         } // stage
+        stage("Deploy to another server") {
+            steps {
+                sh """ 
+                    # // Package into rpm and upload
+                """
+            } // steps
+        } // stage 
     } // stages
     post {
         always {
             sh """ 
-                pip uninstall pytest -y
+                sudo pip3 uninstall pytest -y
             """
         } // always
     } // post
